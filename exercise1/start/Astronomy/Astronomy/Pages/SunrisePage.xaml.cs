@@ -12,13 +12,14 @@ public partial class SunrisePage : ContentPage
     protected override async void OnAppearing()
     {
         base.OnAppearing();
-        activityWaiting.IsRunning = true;
+		Shell.Current.FlyoutIcon = ImageSource.FromFile("sun.png");
+		activityWaiting.IsRunning = true;
         var sunriseSunsetData = await GetSunriseSunsetData();
         InitializeUI(sunriseSunsetData.Item1, sunriseSunsetData.Item2, sunriseSunsetData.Item3);
         activityWaiting.IsRunning = false;
-    }
+	}
 
-    async Task<(DateTime, DateTime, TimeSpan)> GetSunriseSunsetData()
+	async Task<(DateTime, DateTime, TimeSpan)> GetSunriseSunsetData()
     {
 
         var latLongData = await LatLongService.GetLatLong();

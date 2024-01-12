@@ -6,4 +6,10 @@ public partial class AboutPage : ContentPage
 	{
 		InitializeComponent();
 	}
+
+	protected override void OnAppearing()
+	{
+		base.OnAppearing();
+		Shell.Current.FlyoutIcon = ImageSource.FromFile("question.png");
+	}
 }

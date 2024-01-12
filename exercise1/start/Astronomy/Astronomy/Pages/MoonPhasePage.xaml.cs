@@ -41,4 +41,10 @@ public partial class MoonPhasePage : ContentPage
             { MoonPhaseCalculator.Phase.LastQuarter, "🌗" },
             { MoonPhaseCalculator.Phase.WaningCrescent, "🌘" },
         };
+
+	protected override void OnAppearing()
+	{
+		base.OnAppearing();
+		Shell.Current.FlyoutIcon = ImageSource.FromFile("moon.png");
+	}
 }
